@@ -91,7 +91,6 @@ output "public_dns" {
 output "public_ip" {
   description = "The public IP address assigned to the instance, if applicable."
   value = try(
-    aws_eip.this[0].public_ip,
     aws_instance.this[0].public_ip,
     aws_instance.ignore_ami[0].public_ip,
     aws_spot_instance_request.this[0].public_ip,
